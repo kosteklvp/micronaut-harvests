@@ -23,6 +23,8 @@ dependencies {
     implementation("io.micronaut.microstream:micronaut-microstream-annotations")
     implementation("io.micronaut.microstream:micronaut-microstream")
 
+    testImplementation 'io.micronaut.test:micronaut-test-junit5'
+    testImplementation 'io.micronaut:micronaut-inject-java:3.8.5'
 }
 
 
