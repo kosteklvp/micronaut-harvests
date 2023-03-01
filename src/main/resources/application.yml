@@ -1,14 +1,5 @@
-micronaut:
-  application:
-    name: micronautguide
-
-netty:
-  default:
-    allocator:
-      max-order: 3
-
 microstream:
   storage:
     main:
-      root-class: 'example.micronaut.FruitContainer'
+      root-class: 'com.kosteklvp.guide.fruit.data.FruitContainer'
       storage-directory: 'build/fruit-storage'
