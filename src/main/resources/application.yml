@@ -1,7 +1,14 @@
 micronaut:
   application:
     name: micronautguide
+
 netty:
   default:
     allocator:
       max-order: 3
+
+microstream:
+  storage:
+    main:
+      root-class: 'example.micronaut.FruitContainer'
+      storage-directory: 'build/fruit-storage'

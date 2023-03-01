@@ -1,3 +1,4 @@
+bin/
 Thumbs.db
 .DS_Store
 .gradle
@@ -14,4 +15,3 @@ out/
 .classpath
 .factorypath
 *.class
-
