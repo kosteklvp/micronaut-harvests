@@ -1,18 +1,7 @@
 package com.kosteklvp.guide.fruit.data;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import com.kosteklvp.guide.harvest.data.HarvestContainer;
 
-import io.micronaut.core.annotation.NonNull;
-
-public class FruitContainer {
-
-  @NonNull
-  private final Map<String, Fruit> fruits = new ConcurrentHashMap<>();
-
-  @NonNull
-  public Map<String, Fruit> getFruits() {
-    return fruits;
-  }
+public class FruitContainer extends HarvestContainer<Fruit> {
 
 }

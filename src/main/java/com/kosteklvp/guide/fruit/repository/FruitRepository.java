@@ -31,13 +31,13 @@ public class FruitRepository implements IFruitRepository {
   @Override
   @NonNull
   public Collection<Fruit> list() {
-    return rootProvider.root().getFruits().values();
+    return rootProvider.root().getHarvests().values();
   }
 
   @Override
   @NonNull
   public Fruit create(@NonNull @NotNull @Valid FruitCommand fruit) throws FruitDuplicateException {
-    Map<String, Fruit> fruits = rootProvider.root().getFruits();
+    Map<String, Fruit> fruits = rootProvider.root().getHarvests();
     if (fruits.containsKey(fruit.getName())) {
       throw new FruitDuplicateException(fruit.getName());
     }
@@ -55,7 +55,7 @@ public class FruitRepository implements IFruitRepository {
 
   @Nullable
   public Fruit update(@NonNull @NotNull @Valid FruitCommand fruit) {
-    Map<String, Fruit> fruits = rootProvider.root().getFruits();
+    Map<String, Fruit> fruits = rootProvider.root().getHarvests();
     Fruit foundFruit = fruits.get(fruit.getName());
 
     if (foundFruit != null) {
@@ -74,7 +74,7 @@ public class FruitRepository implements IFruitRepository {
   @Override
   @Nullable
   public Fruit find(@NonNull @NotBlank String name) {
-    return rootProvider.root().getFruits().get(name);
+    return rootProvider.root().getHarvests().get(name);
   }
 
   @Override
@@ -84,8 +84,8 @@ public class FruitRepository implements IFruitRepository {
 
   @StoreReturn
   protected Map<String, Fruit> performDelete(FruitCommand fruit) {
-    if (rootProvider.root().getFruits().remove(fruit.getName()) != null) {
-      return rootProvider.root().getFruits();
+    if (rootProvider.root().getHarvests().remove(fruit.getName()) != null) {
+      return rootProvider.root().getHarvests();
     }
 
     return null;
