@@ -1,18 +1,24 @@
-## Micro
+# Micronaut Harvest Example
 
-- [User Guide](https://docs.micronaut.io/3.8.6/guide/index.html)
-- [API Reference](https://docs.micronaut.io/3.8.6/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/3.8.6/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
----
+This is a Micronaut application written in Java. It uses HTTP Methods to operate on Fruit and Vegetable repositories. This is a completed example of this [MicroStream guide](https://guides.micronaut.io/latest/micronaut-microstream-persistence-gradle-java.html).
 
-- [Shadow Gradle Plugin](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow)
-## Feature http-client documentation
+## Used technologies/tools
 
-- [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
+- Java 17
+- Gradle 8.0
+- Micronaut 3.8.6
+- Postman 8.11.1
+- Eclipse 2022-12
 
+## Launching
 
+Run application with 'gradle run'. 
 
+## Features
 
-https://user-images.githubusercontent.com/29569674/222506894-f0f9efaa-91f7-4ee4-ba5f-8731c624ad54.mp4
+- operating on fruits and vegetables repositories,
+- displaying fruits and vegetables in one GET request on '/harvests'.
 
+## Preview video
+
+https://user-images.githubusercontent.com/29569674/222516222-8477b6a7-48f2-4dd1-bd92-98222f4f12c3.mp4
