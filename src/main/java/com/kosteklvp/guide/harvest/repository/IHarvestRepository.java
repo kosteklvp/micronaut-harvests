@@ -1,4 +1,4 @@
-package com.kosteklvp.guide.fruit.repository;
+package com.kosteklvp.guide.harvest.repository;
 
 import java.util.Collection;
 
@@ -7,27 +7,26 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import com.kosteklvp.guide.exception.DuplicateException;
-import com.kosteklvp.guide.fruit.data.Fruit;
 import com.kosteklvp.guide.harvest.data.Harvest;
 import com.kosteklvp.guide.harvest.data.HarvestCommand;
 
 import io.micronaut.core.annotation.NonNull;
 import io.micronaut.core.annotation.Nullable;
 
-public interface IFruitRepository<H extends Harvest, HC extends HarvestCommand> {
+public interface IHarvestRepository<H extends Harvest, C extends HarvestCommand> {
 
   @NonNull
-  Collection<Fruit> list();
+  Collection<H> list();
 
   @NonNull
-  H create(@NonNull @NotNull @Valid HC fruit) throws DuplicateException;
+  H create(@NonNull @NotNull @Valid C command) throws DuplicateException;
 
   @Nullable
-  H update(@NonNull @NotNull @Valid HC fruit);
+  H update(@NonNull @NotNull @Valid C command);
 
   @Nullable
   H find(@NonNull @NotBlank String name);
 
-  void delete(@NonNull @NotNull @Valid HC fruit);
+  void delete(@NonNull @NotNull @Valid C command);
 
 }

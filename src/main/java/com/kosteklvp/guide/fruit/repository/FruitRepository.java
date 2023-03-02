@@ -1,5 +1,7 @@
 package com.kosteklvp.guide.fruit.repository;
 
+import static java.util.Collections.emptyMap;
+
 import java.util.Collection;
 import java.util.Map;
 
@@ -11,6 +13,7 @@ import com.kosteklvp.guide.exception.DuplicateException;
 import com.kosteklvp.guide.fruit.data.Fruit;
 import com.kosteklvp.guide.fruit.data.FruitCommand;
 import com.kosteklvp.guide.fruit.data.FruitContainer;
+import com.kosteklvp.guide.harvest.repository.IHarvestRepository;
 
 import io.micronaut.core.annotation.NonNull;
 import io.micronaut.core.annotation.Nullable;
@@ -20,24 +23,24 @@ import io.micronaut.microstream.annotations.StoreReturn;
 import jakarta.inject.Singleton;
 
 @Singleton
-public class FruitRepository implements IFruitRepository<Fruit, FruitCommand> {
+public class FruitRepository implements IHarvestRepository<Fruit, FruitCommand> {
 
-  private final RootProvider<FruitContainer> rootProvider;
+  private final RootProvider<FruitContainer> fruitProvider;
 
   FruitRepository(RootProvider<FruitContainer> rootProvider) {
-    this.rootProvider = rootProvider;
+    this.fruitProvider = rootProvider;
   }
 
   @Override
   @NonNull
   public Collection<Fruit> list() {
-    return rootProvider.root().getHarvests().values();
+    return fruitProvider.root().getHarvests().values();
   }
 
   @Override
   @NonNull
   public Fruit create(@NonNull @NotNull @Valid FruitCommand fruit) throws DuplicateException {
-    Map<String, Fruit> fruits = rootProvider.root().getHarvests();
+    Map<String, Fruit> fruits = fruitProvider.root().getHarvests();
     if (fruits.containsKey(fruit.getName())) {
       throw new DuplicateException(fruit.getName());
     }
@@ -55,7 +58,7 @@ public class FruitRepository implements IFruitRepository<Fruit, FruitCommand> {
 
   @Nullable
   public Fruit update(@NonNull @NotNull @Valid FruitCommand fruit) {
-    Map<String, Fruit> fruits = rootProvider.root().getHarvests();
+    Map<String, Fruit> fruits = fruitProvider.root().getHarvests();
     Fruit foundFruit = fruits.get(fruit.getName());
 
     if (foundFruit != null) {
@@ -74,7 +77,7 @@ public class FruitRepository implements IFruitRepository<Fruit, FruitCommand> {
   @Override
   @Nullable
   public Fruit find(@NonNull @NotBlank String name) {
-    return rootProvider.root().getHarvests().get(name);
+    return fruitProvider.root().getHarvests().get(name);
   }
 
   @Override
@@ -84,11 +87,11 @@ public class FruitRepository implements IFruitRepository<Fruit, FruitCommand> {
 
   @StoreReturn
   protected Map<String, Fruit> performDelete(FruitCommand fruit) {
-    if (rootProvider.root().getHarvests().remove(fruit.getName()) != null) {
-      return rootProvider.root().getHarvests();
+    if (fruitProvider.root().getHarvests().remove(fruit.getName()) != null) {
+      return fruitProvider.root().getHarvests();
     }
 
-    return null;
+    return emptyMap();
   }
 
 }
