@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 
 import com.kosteklvp.guide.vegetable.data.Vegetable;
 import com.kosteklvp.guide.vegetable.data.VegetableCommand;
-import com.kosteklvp.guide.vegetable.repository.VegetableRepository;
+import com.kosteklvp.guide.vegetable.repository.IVegetableRepository;
 
 import io.micronaut.core.annotation.NonNull;
 import io.micronaut.http.HttpStatus;
@@ -25,9 +25,9 @@ import io.micronaut.scheduling.annotation.ExecuteOn;
 @Controller("/vegetables")
 public class VegetableController {
 
-  private final VegetableRepository vegetableRepository;
+  private final IVegetableRepository vegetableRepository;
 
-  VegetableController(VegetableRepository vegetableRepository) {
+  VegetableController(IVegetableRepository vegetableRepository) {
     this.vegetableRepository = vegetableRepository;
   }
 
