@@ -7,10 +7,10 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.kosteklvp.guide.exception.DuplicateException;
 import com.kosteklvp.guide.fruit.data.Fruit;
 import com.kosteklvp.guide.fruit.data.FruitCommand;
 import com.kosteklvp.guide.fruit.data.FruitContainer;
-import com.kosteklvp.guide.fruit.exception.FruitDuplicateException;
 
 import io.micronaut.core.annotation.NonNull;
 import io.micronaut.core.annotation.Nullable;
@@ -20,7 +20,7 @@ import io.micronaut.microstream.annotations.StoreReturn;
 import jakarta.inject.Singleton;
 
 @Singleton
-public class FruitRepository implements IFruitRepository {
+public class FruitRepository implements IFruitRepository<Fruit, FruitCommand> {
 
   private final RootProvider<FruitContainer> rootProvider;
 
@@ -36,10 +36,10 @@ public class FruitRepository implements IFruitRepository {
 
   @Override
   @NonNull
-  public Fruit create(@NonNull @NotNull @Valid FruitCommand fruit) throws FruitDuplicateException {
+  public Fruit create(@NonNull @NotNull @Valid FruitCommand fruit) throws DuplicateException {
     Map<String, Fruit> fruits = rootProvider.root().getHarvests();
     if (fruits.containsKey(fruit.getName())) {
-      throw new FruitDuplicateException(fruit.getName());
+      throw new DuplicateException(fruit.getName());
     }
 
     return performCreate(fruits, fruit);
