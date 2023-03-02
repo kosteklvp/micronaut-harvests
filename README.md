@@ -12,7 +12,7 @@ This is a Micronaut application written in Java. It uses HTTP Methods to operate
 
 ## Launching
 
-Run application with 'gradle run'. 
+Download and run `micronaut-harvest-1.0.jar`. 
 
 ## Features
 
