@@ -1,5 +1,0 @@
-microstream:
-  storage:
-    main:
-      root-class: 'com.kosteklvp.guide.storage.HarvestsContainer'
-      storage-directory: 'build/harvests-storage'
