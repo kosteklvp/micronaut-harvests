@@ -1,5 +1,5 @@
 microstream:
   storage:
     main:
-      root-class: 'com.kosteklvp.guide.fruit.data.FruitContainer'
-      storage-directory: 'build/fruit-storage'
+      root-class: 'com.kosteklvp.guide.storage.HarvestsContainer'
+      storage-directory: 'build/harvests-storage'
