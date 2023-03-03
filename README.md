@@ -1,6 +1,6 @@
 # Micronaut Harvest Example
 
-This is a Micronaut application written in Java. It uses HTTP Methods to operate on Fruit and Vegetable repositories. This is a completed example of this [MicroStream guide](https://guides.micronaut.io/latest/micronaut-microstream-persistence-gradle-java.html).
+This is a Micronaut application written in Java. It uses HTTP Methods to operate on Fruit and Vegetable repositories. This is a completed service example of this [MicroStream guide](https://guides.micronaut.io/latest/micronaut-microstream-persistence-gradle-java.html).
 
 ## Used technologies/tools
 
@@ -12,7 +12,7 @@ This is a Micronaut application written in Java. It uses HTTP Methods to operate
 
 ## Launching
 
-Download and run executable jar file from **Releases** section. 
+Download executable jar file from **Releases** section and run service. 
 
 ## Features
 
