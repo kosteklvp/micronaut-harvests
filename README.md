@@ -12,7 +12,7 @@ This is a Micronaut application written in Java. It uses HTTP Methods to operate
 
 ## Launching
 
-Download executable jar file from **Releases** section and run service. 
+Download executable jar file from **Releases** section and run service. It runs on port 8080.
 
 ## Features
 
