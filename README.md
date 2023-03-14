@@ -2,14 +2,6 @@
 
 This is a Micronaut application written in Java. It uses HTTP Methods to operate on Fruit and Vegetable repositories. This is a completed service example of this [MicroStream guide](https://guides.micronaut.io/latest/micronaut-microstream-persistence-gradle-java.html).
 
-## Used technologies/tools
-
-- Java 17
-- Gradle 8.0
-- Micronaut 3.8.6
-- Postman 8.11.1
-- Eclipse 2022-12
-
 ## Launching
 
 Download executable jar file from **Releases** section and run service. It runs on port 8080.
